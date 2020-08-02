@@ -93,10 +93,11 @@ CROSS=""
 
 SYSROOT=""
 CC="gcc"
-AR="ar"
 LD="gcc"
-RANLIB="ranlib"
-STRIP="strip"
+AR="gcc-ar"
+RANLIB="gcc-ranlib"
+NM="gcc-nm"
+STRIP="/bin/true"
 
 DEBUG=""
 
@@ -282,7 +283,7 @@ if test -n "$DEBUG"; then
     CFLAGS="$CFLAGS -g3 -O0"
     STRIP=""
 else
-    CFLAGS="-Os -ffast-math $CFLAGS"
+    CFLAGS="-O3 -ffast-math $CFLAGS"
 fi
 
 
